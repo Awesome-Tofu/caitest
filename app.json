@@ -1,0 +1,29 @@
+{
+  "name": "characterAI",
+  "description": "Telegram bot built with Node.js",
+  "repository": "https://github.com/Awesome-Tofu/ChizuruTelegramConnect",
+  "logo": "https://graph.org/file/f44a8af092e5f6a8930f9.png",
+  "keywords": ["nodejs", "bot", "instagram bot", "instagram automation", "multi device"],
+  "addons": [
+    {
+      "options": {
+        "version": "12"
+      },
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/jontewks/puppeteer-heroku-buildpack"
+    }
+  ]
+}
