@@ -2,7 +2,7 @@ const express = require("express");
 const puppeteer = require("puppeteer");
 const CharacterAI = require("node_characterai");
 const async = require("async");
-require("dotenv").config()
+require("dotenv").config();
 
 const app = express();
 
@@ -93,7 +93,8 @@ const queue = async.queue(async (task, callback) => {
 }, 1);
 app.get("/",(req,res)=>{
   res.json({redirect:"/chat?id=id&teks=whats your name?"})
-}
+})
+
 app.get("/chat", (req, res) => {
   const characterId = req.query.id;
   const message = req.query.teks;
