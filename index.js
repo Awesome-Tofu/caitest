@@ -16,9 +16,17 @@ async function initializeBrowser() {
 
   try {
     browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox'],
-    });
+        args: [
+          "--disable-setuid-sandbox",
+          "--no-sandbox",
+          "--single-process",
+          "--no-zygote",
+        ],
+        executablePath:
+          process.env.NODE_ENV === "production"
+            ? process.env.PUPPETEER_EXECUTABLE_PATH
+            : puppeteer.executablePath(),
+      });
 
     browser.on('disconnected', () => {
       console.log('Browser disconnected. Reinitializing...');
